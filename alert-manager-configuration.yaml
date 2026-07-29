@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: main-rules-alert-config
+  namespace: monitoring
+spec:
+  receivers:
+  - name: 'email'
+    emailConfigs:
+    - to: 'artnagornyi@gmail.com'
+      from: 'artnagornyi@gmail.com'
+      smarthost: 'smtp.gmail.com:587'
+      authUsername: 'artnagornyi@gmail.com'
+      authIdentity: 'artnagornyi@gmail.com'
+      authPassword:
+        name: gmail-auth
+        key: password
