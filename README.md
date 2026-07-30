@@ -186,6 +186,21 @@ helm repo update
 
 helm install redis-exporter prometheus-community/prometheus-redis-exporter -f redis-values.yaml
 ```
+```
+
+Users → AWS Load Balancer → Frontend → Microservices → Redis
+↓
+Prometheus Operator
+↓           ↓
+Grafana    Alertmanager
+```
+
+## Delete cluster
+```bash
+eksctl delete cluster \
+  --name monitoring-cluster \
+  --region eu-north-1
+```
 
 ---
 
