@@ -204,4 +204,14 @@ eksctl delete cluster \
 
 ---
 
-<p align="center">Made with ❤️ for learning Kubernetes observability.</p>
+## 🏭 Production considerations
+
+- **Persistence** — PVCs for Prometheus and Grafana; long-term storage via Thanos or remote write.
+- **Alert routing** — Alertmanager routes to Slack/PagerDuty with severity-based receivers and inhibition rules, not just a single email.
+- **Secrets** — pull SMTP/Slack credentials from AWS Secrets Manager via External Secrets instead of a committed `Secret` manifest.
+- **Dashboards as code** — provision Grafana dashboards from ConfigMaps so they survive redeploys.
+- **SLOs** — alert on burn rate of error budgets rather than raw thresholds where possible.
+
+---
+
+_Built as a hands-on lab during the [TechWorld with Nana DevOps Bootcamp](https://www.credly.com/go/kWb3uHky), then extended and documented independently._
